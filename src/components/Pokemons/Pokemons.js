@@ -22,11 +22,22 @@ export default class Pokemons extends Component {
       this.props.onUpdateCart(cart);
     }
 
-    let response = await PokeApi.getAllPokemon(initialURL);
-    await this.loadPokemons(response.results);
-
-    nextURL = response.next;
-    prevURL = response.previous;
+    if (
+      localStorage.getItem("url") &&
+      localStorage.getItem("adopting") === "true"
+    ) {
+      let response = await PokeApi.getAllPokemon(localStorage.getItem("url"));
+      await this.loadPokemons(response.results);
+      nextURL = response.next;
+      prevURL = response.previous;
+      localStorage.setItem("adopting", false);
+    } else {
+      let response = await PokeApi.getAllPokemon(initialURL);
+      await this.loadPokemons(response.results);
+      nextURL = response.next;
+      prevURL = response.previous;
+      localStorage.setItem("url", initialURL);
+    }
 
     this.setState({ cart, nextURL, prevURL });
   }
@@ -60,6 +71,7 @@ export default class Pokemons extends Component {
     try {
       cart.push(newPokemon);
       localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("adopting", true);
       this.props.onUpdateCart(cart);
       window.location.reload();
     } catch (err) {
@@ -83,6 +95,8 @@ export default class Pokemons extends Component {
   nextPage = async () => {
     let { nextURL, prevURL } = this.state;
 
+    localStorage.setItem("url", nextURL);
+
     let response = await PokeApi.getAllPokemon(nextURL);
     await this.loadPokemons(response.results);
 
@@ -96,6 +110,8 @@ export default class Pokemons extends Component {
 
   prevPage = async () => {
     let { nextURL, prevURL } = this.state;
+
+    localStorage.setItem("url", prevURL);
 
     let response = await PokeApi.getAllPokemon(prevURL);
     await this.loadPokemons(response.results);
