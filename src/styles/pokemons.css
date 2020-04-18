@@ -20,9 +20,8 @@
 }
 
 .pokemons-title {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-size: 2vmax;
+  padding-bottom: 0.5em;
+  font-size: 4vw;
 }
 
 /*Tablet or Landscape mobile*/

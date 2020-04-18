@@ -61,7 +61,7 @@ export default class Pokemons extends Component {
       cart.push(newPokemon);
       localStorage.setItem("cart", JSON.stringify(cart));
       this.props.onUpdateCart(cart);
-      window.location.href = "/checkout";
+      window.location.reload();
     } catch (err) {
       alert("Cart limit exceeded");
     }
@@ -115,7 +115,7 @@ export default class Pokemons extends Component {
       <React.Fragment>
         <div className="container">
           <div className="vstack">
-            <h1 className="pokemons-title">Pokemons</h1>
+            <h1 className="pokemons-title">Adopt a Pokemon</h1>
             <div className="grid-container">
               {pokemonData.map((pokemon, i) => {
                 return (

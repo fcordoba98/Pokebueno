@@ -87,13 +87,18 @@ export default class Checkout extends Component {
                 );
               })}
             </div>
-            <div className="btn-adopt padding-16">
-              {cart.length > 0 && (
-                <button className="btn-simple padding-16" onClick={this.submit}>
-                  Adopt 'em
-                </button>
-              )}
-            </div>
+            <div className="btn-adopt padding-16" />
+            {cart.length > 0 && (
+              <button
+                className="btn-simple padding-16"
+                onClick={() => {
+                  if (window.confirm("Are you sure you want to adopt'em?"))
+                    this.submit();
+                }}
+              >
+                Adopt 'em
+              </button>
+            )}
           </div>
         </div>
       </React.Fragment>
