@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Adoptions from "./components/Adoptions";
 import Checkout from "./components/Checkout";
 import Pokemons from "./components/Pokemons";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
   state = {
@@ -69,6 +70,7 @@ class App extends Component {
             <Route path="/checkout" render={this.myCheckout} />
           </Switch>
         </Router>
+        <Footer/>
       </React.Fragment>
     );
   }
