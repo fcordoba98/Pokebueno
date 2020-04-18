@@ -46,7 +46,12 @@ export default class NavBar extends Component {
       <React.Fragment>
         <div className="hstack navbar">
           <div className="logo-container">
-            <img href="/homepage" className="logo" alt="logo" src="" />
+            <img
+              href="/homepage"
+              className="logo"
+              alt="logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"
+            />
           </div>
           <div className="bar-menu">
             <button onClick={this.Toggle}>

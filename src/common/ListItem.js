@@ -14,7 +14,12 @@ const ListItem = ({ pokemon, onClick }) => (
       <p>Height: {pokemon.height}</p>
     </div>
     <div>
-      <button className="btn-simple square" onClick={() => onClick(pokemon)}>
+      <button
+        className="btn-simple square"
+        onClick={() => {
+          onClick(pokemon);
+        }}
+      >
         REMOVE FROM BASKET
       </button>
     </div>

@@ -27,13 +27,15 @@ function Card({ pokemon, onClick, id, type }) {
           </div>
         </div>
         <div className="vstack">
-          <div className="padding-8">
-            <p className="title">Weight</p>
-            <p>{pokemon.weight}</p>
-          </div>
-          <div className="padding-8">
-            <p className="title">Height</p>
-            <p>{pokemon.height}</p>
+          <div className="hstack">
+            <div className="padding-8">
+              <p className="title">Weight</p>
+              <p>{pokemon.weight}</p>
+            </div>
+            <div className="padding-8">
+              <p className="title">Height</p>
+              <p>{pokemon.height}</p>
+            </div>
           </div>
           <div className="padding-8">
             <p className="title">Ability</p>
@@ -44,17 +46,17 @@ function Card({ pokemon, onClick, id, type }) {
             <div className="padding-16">
               <button
                 type="button"
-                className="btn-simple pill padding-16"
+                className="btn-simple pill padding-16 title"
                 onClick={() => {
                   if (
                     window.confirm(
-                      "Are you sure you want to take the responsibility of taking care of a pokemon?"
+                      "Are you sure you want to take the responsability of taking care of this pokemon?"
                     )
                   )
                     onClick(pokemon);
                 }}
               >
-                Adopt!
+                Adopt
               </button>
             </div>
           )}
